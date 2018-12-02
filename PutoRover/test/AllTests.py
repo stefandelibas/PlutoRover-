@@ -146,19 +146,31 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(rover.getX(), 10)  # it went around the grid
 
 
-        rover.right()
-
     def test_line_vertical(self):
         # run along a line and when it reaches a certain edge(left or right)
         # it should go on the opposite side of the grid
-        pass
+        self.d = Direction()
+        rover = Rover(0, 0, self.d.get("N"), 10, 10)
+        for i in range(10):
+            # move until the edge edge
+            rover.forward()
+        self.assertEqual(rover.getY(), 10)
+        self.assertEqual(rover.getX(), 0)
+        rover.forward()
+        self.assertEqual(rover.getY(), 0)
+        self.assertEqual(rover.getX(), 0)  # it went around the grid
+        rover.backward()
+        self.assertEqual(rover.getY(), 10)  # it went around the grid
 
     def test_corner(self):
         # from a corner go in all directions and test if they are correct
         pass
 
     def test_encounter_obstacle(self):
-        pass
+        self.d = Direction()
+        rover = Rover(0, 0, self.d.get("N"), 10, 10, [[0, 1]])
+        self.assertRaises(ValueError, rover.forward)
+        
 
 
 if __name__ == '__main__':
