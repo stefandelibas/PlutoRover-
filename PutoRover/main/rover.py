@@ -32,23 +32,50 @@ class Rover:
 
     def backward(self):
         if self.d == self.__dir.get("N"):
-            self.y = self.y - 1
+            if self.y - 1 < 0:
+                self.y = self.n
+            else:
+                self.y = self.y - 1
         elif self.d == self.__dir.get("E"):
-            self.x = self.x - 1
+            if self.x - 1 < 0:
+                self.x = self.m
+            else:
+                self.x = self.x - 1
         elif self.d == self.__dir.get("S"):
-            self.y = self.y + 1
+            if self.y + 1 > self.n:
+                self.y = 0
+            else:
+                self.y = self.y + 1
         elif self.d == self.__dir.get("W"):
-            self.x = self.x + 1
+            if self.x + 1 > self.m:
+                self.x = 0
+            else:
+                self.x = self.x + 1
 
     def forward(self):
         if self.d == self.__dir.get("N"):
-            self.y = self.y + 1
+            if self.y + 1 > self.n:
+                self.y = 0
+            else:
+                self.y = self.y + 1
+
         elif self.d == self.__dir.get("E"):
-            self.x = self.x + 1
+            if self.x + 1 > self.m:
+                self.x = 0
+            else:
+                self.x = self.x + 1
+
         elif self.d == self.__dir.get("S"):
-            self.y = self.y - 1
+            if self.y - 1 < 0:
+                self.y = self.n
+            else:
+                self.y = self.y - 1
+
         elif self.d == self.__dir.get("W"):
-            self.x = self.x - 1
+            if self.x - 1 < 0:
+                self.x = self.m
+            else:
+                self.x = self.x - 1
 
     def right(self):
         if self.d == self.__dir.get("N"):
