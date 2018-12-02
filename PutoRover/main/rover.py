@@ -50,13 +50,26 @@ class Rover:
         elif self.d == self.__dir.get("W"):
             self.x = self.x - 1
 
-
-
     def right(self):
-        pass
+        if self.d == self.__dir.get("N"):
+            self.d = "E"
+        elif self.d == self.__dir.get("E"):
+            self.d = "S"
+        elif self.d == self.__dir.get("S"):
+            self.d = "W"
+        elif self.d == self.__dir.get("W"):
+            self.d = "N"
 
     def left(self):
-        pass
+        if self.d == self.__dir.get("N"):
+            self.d = "W"
+        elif self.d == self.__dir.get("E"):
+            self.d = "N"
+        elif self.d == self.__dir.get("S"):
+            self.d = "E"
+        elif self.d == self.__dir.get("W"):
+            self.d = "S"
+
 
 
 class Direction:
