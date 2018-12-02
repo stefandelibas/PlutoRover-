@@ -65,14 +65,69 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(rover.getX(), 6)
         self.assertEqual(rover.getY(), 5)
 
-    def test_backward(self):
-        pass
+    def test_left_north(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("N"), 10, 10)
+        rover.left()
+        self.assertEqual(rover.getD(), "W")
+        self.assertEqual(rover.getY(), 5)
+        self.assertEqual(rover.getX(), 5)
 
-    def test_left(self):
-        self.assertEqual(True, True)
+    def test_left_east(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("E"), 10, 10)
+        rover.left()
+        self.assertEqual(rover.getD(), "N")
+        self.assertEqual(rover.getY(), 5)
+        self.assertEqual(rover.getX(), 5)
 
-    def test_right(self):
-        pass
+    def test_left_south(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("S"), 10, 10)
+        rover.left()
+        self.assertEqual(rover.getD(), "E")
+        self.assertEqual(rover.getY(), 5)
+        self.assertEqual(rover.getX(), 5)
+
+    def test_left_west(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("W"), 10, 10)
+        rover.left()
+        self.assertEqual(rover.getD(), "S")
+        self.assertEqual(rover.getY(), 5)
+        self.assertEqual(rover.getX(), 5)
+
+    def test_right_north(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("N"), 10, 10)
+        rover.right()
+        self.assertEqual(rover.getD(), "E")
+        self.assertEqual(rover.getY(), 5)
+        self.assertEqual(rover.getX(), 5)
+
+    def test_right_east(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("E"), 10, 10)
+        rover.right()
+        self.assertEqual(rover.getD(), "S")
+        self.assertEqual(rover.getY(), 5)
+        self.assertEqual(rover.getX(), 5)
+
+    def test_right_south(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("S"), 10, 10)
+        rover.right()
+        self.assertEqual(rover.getD(), "W")
+        self.assertEqual(rover.getY(), 5)
+        self.assertEqual(rover.getX(), 5)
+
+    def test_right_west(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("W"), 10, 10)
+        rover.right()
+        self.assertEqual(rover.getD(), "N")
+        self.assertEqual(rover.getY(), 5)
+        self.assertEqual(rover.getX(), 5)
 
     def test_line_horizontal(self):
         # run along a line and when it reaches a certain edge(left or right)
