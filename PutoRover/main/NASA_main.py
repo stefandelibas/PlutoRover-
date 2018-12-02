@@ -9,11 +9,11 @@ def main():
     commands = readCommands("C:\\Users\\Stefan-PC\\Documents\\GitHub\\PlutoRover-\\PutoRover\\commands.txt")
     for c in commands:
         if c == "F":
-            rover.forward()
+            rover.moveForward()
         elif c == "R":
             rover.right()
         elif c == "B":
-            rover.backward()
+            rover.moveBackward()
         elif c == "L":
             rover.left()
     print(str(rover))

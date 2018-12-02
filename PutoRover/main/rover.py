@@ -31,6 +31,19 @@ class Rover:
     def getD(self):
         return self.d
 
+    def moveForward(self):
+        try:
+            self.forward()
+        except ValueError as err:
+            print(err)
+
+    def moveBackward(self):
+        try:
+            self.forward()
+        except ValueError as err:
+            print(err)
+
+
     def backward(self):
         if self.d == self.__dir.get("N"):
             if [self.x, self.y - 1] in self.obstacles:

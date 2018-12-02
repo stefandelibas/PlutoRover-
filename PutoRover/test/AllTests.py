@@ -170,7 +170,7 @@ class MyTestCase(unittest.TestCase):
         self.d = Direction()
         rover = Rover(0, 0, self.d.get("N"), 10, 10, [[0, 1]])
         self.assertRaises(ValueError, rover.forward)
-        
+
 
 
 if __name__ == '__main__':
