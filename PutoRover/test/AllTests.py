@@ -37,6 +37,34 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(rover.getX(), 4)
         self.assertEqual(rover.getY(), 5)
 
+    def test_backward_north(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("N"), 10, 10)
+        rover.backward()
+        self.assertEqual(rover.getX(), 5)
+        self.assertEqual(rover.getY(), 4)
+
+    def test_backward_east(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("E"), 10, 10)
+        rover.backward()
+        self.assertEqual(rover.getX(), 4)
+        self.assertEqual(rover.getY(), 5)
+
+    def test_backward_south(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("S"), 10, 10)
+        rover.backward()
+        self.assertEqual(rover.getX(), 5)
+        self.assertEqual(rover.getY(),6)
+
+    def test_backward_west(self):
+        self.d = Direction()
+        rover = Rover(5, 5, self.d.get("W"), 10, 10)
+        rover.backward()
+        self.assertEqual(rover.getX(), 6)
+        self.assertEqual(rover.getY(), 5)
+
     def test_backward(self):
         pass
 

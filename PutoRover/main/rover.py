@@ -31,7 +31,14 @@ class Rover:
         return self.d
 
     def backward(self):
-        pass
+        if self.d == self.__dir.get("N"):
+            self.y = self.y - 1
+        elif self.d == self.__dir.get("E"):
+            self.x = self.x - 1
+        elif self.d == self.__dir.get("S"):
+            self.y = self.y + 1
+        elif self.d == self.__dir.get("W"):
+            self.x = self.x + 1
 
     def forward(self):
         if self.d == self.__dir.get("N"):
