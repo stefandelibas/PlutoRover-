@@ -7,6 +7,7 @@ class Rover:
         self.x = x
         self.y = y
         self.d = direction
+        self.__dir = Direction()
 
     def set_position(self, x, y, d):
         # whenever we want to reinitialize the position of the rover(typically in testing)
@@ -20,6 +21,12 @@ class Rover:
     def getY(self):
         return self.y
 
+    def setX(self, x):
+        self.x = x
+
+    def setY(self, y):
+        self.y = y
+
     def getD(self):
         return self.d
 
@@ -27,7 +34,16 @@ class Rover:
         pass
 
     def forward(self):
-        pass
+        if self.d == self.__dir.get("N"):
+            self.y = self.y + 1
+        elif self.d == self.__dir.get("E"):
+            self.x = self.x + 1
+        elif self.d == self.__dir.get("S"):
+            self.y = self.y - 1
+        elif self.d == self.__dir.get("W"):
+            self.x = self.x - 1
+
+
 
     def right(self):
         pass
