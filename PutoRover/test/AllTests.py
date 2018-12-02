@@ -1,31 +1,36 @@
 import unittest
-from main.rover import Rover
-
+from main.rover import Rover,Direction
 class MyTestCase(unittest.TestCase):
+
+    def __init__(self):
+        self.d = Direction()
+
     def test_forward(self):
         self.test_forward_north()
         self.test_forward_east()
+        self.test_forward_south()
+        self.test_forward_west()
 
     def test_forward_north(self):
-        rover = Rover(5, 5, 'N', 10, 10)
+        rover = Rover(5, 5, self.d.get("N"), 10, 10)
         rover.forward()
         self.assertEqual(rover.getX(), 5)
         self.assertEqual(rover.getY(), 6)
 
     def test_forward_east(self):
-        rover = Rover(5, 5, 'E', 10, 10)
+        rover = Rover(5, 5, self.d.get("E"), 10, 10)
         rover.forward()
         self.assertEqual(rover.getX(), 6)
         self.assertEqual(rover.getY(), 5)
 
     def test_forward_south(self):
-        rover = Rover(5, 5, 'S', 10, 10)
+        rover = Rover(5, 5, self.d.get("S"), 10, 10)
         rover.forward()
         self.assertEqual(rover.getX(), 5)
         self.assertEqual(rover.getY(), 4)
 
     def test_forward_west(self):
-        rover = Rover(5, 5, 'W', 10, 10)
+        rover = Rover(5, 5, self.d.get("W"), 10, 10)
         rover.forward()
         self.assertEqual(rover.getX(), 4)
         self.assertEqual(rover.getY(), 5)
